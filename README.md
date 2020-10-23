@@ -19,11 +19,14 @@
 
 ## :books: General info
 
+*	Firebase Firestore Authentication used to create sign in and log in functions
+* Firebase Cloud Firestore stores users and messages in Collections.
 * [Angular FormBuilder](https://angular.io/api/forms/FormBuilder#description) used to reduce the amount of boilerplate needed to build a form
+* rxjs map and switchmap operators used
 
 ## :camera: Screenshots
 
-![screenshot](./img/chat.png)
+![screenshot](./img/test.png)
 
 ## :signal_strength: Technologies
 
@@ -35,24 +38,37 @@
 ## :floppy_disk: Setup
 
 * Create a Firebase project and add email authentication
+* Add Firebase config object to environment variables
+* npm i to install dependencies
 * Type: 'ionic serve' to start the server on _localhost://8100
 
 ## :computer: Code Examples
 
-* extract from tba
+* extract from `chat.page.html` by [Simon Grimm](https://devdactic.com/) showing ternery expressions to change chat offset and scss class depending on user
 
-```typescript
-
+```html
+	<ion-grid>
+    <ion-row *ngFor="let message of messages | async">
+      <ion-col size="9" class="message"
+        [offset]="message.myMsg ? 3 : 0"
+        [ngClass]="{ 'my-message': message.myMsg, 'other-message': !message.myMsg }">
+        <b>{{ message.fromName }}</b><br>
+        <span>{{ message.msg }}
+        </span>
+        <div class="time ion-text-right"><br>{{ message.createdAt?.toMillis().toString() | date:'short' }}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 ```
 
 ## :cool: Features
 
-* tba
+* Use of ternery expressions to change chat box color and horizontal offset depending on which user chat item is shown
 
 ## :clipboard: Status & To-do list
 
-* Status: In work. Error when sending a chat message
-* To-do: Fix errors
+* Status: Complete and working. Problem with dev. console persisting user login id which stops chat from showing user details correctly
+* To-do: Find out how to show more than one user email in chat with email username - problem is likely due to storing of user data even after logging out and logging in as a different user.
 
 ## :clap: Inspiration
 

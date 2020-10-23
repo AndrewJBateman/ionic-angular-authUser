@@ -27,32 +27,30 @@ export class ChatService {
 
 	constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
 		this.afAuth.onAuthStateChanged((user) => {
-			console.log('Changed: ', user);
+			console.log("Changed: ", user);
 			this.currentUser = user;
 		});
 	}
 
-	async signUp({ email, password }) {
+	async signUp({ email, password }): Promise<any> {
 		const credential = await this.afAuth.createUserWithEmailAndPassword(
 			email,
 			password
 		);
 
-		console.log('result: ', credential);
 		const uid = credential.user.uid;
 
-		return this.afs
-			.doc('users/${uid}')
-			.set({
-				uid,
-				email: credential.user.email });
+		return this.afs.doc(`users/${uid}`).set({
+			uid,
+			email: credential.user.email,
+		});
 	}
 
 	signIn({ email, password }) {
 		return this.afAuth.signInWithEmailAndPassword(email, password);
 	}
 
-	signOut(): Promise<void> {
+	signOut() {
 		return this.afAuth.signOut();
 	}
 
@@ -69,7 +67,7 @@ export class ChatService {
 		return this.getUsers().pipe(
 			switchMap((res) => {
 				users = res;
-				console.log('all users: ', users);
+				console.log("all users: ", users);
 				return this.afs
 					.collection('messages', (ref) => ref.orderBy('createdAt'))
 					.valueChanges({ idField: 'id' }) as Observable<Message[]>;
@@ -79,7 +77,6 @@ export class ChatService {
 					m.fromName = this.getUserForMsg(m.from, users);
 					m.myMsg = this.currentUser.uid === m.from;
 				}
-				console.log('all messages: ', messages);
 				return messages;
 			})
 		);
@@ -96,7 +93,7 @@ export class ChatService {
 			if (usr.uid == msgFromId) {
 				return usr.email;
 			}
+			return 'Deleted';
 		}
-		return 'Deleted';
 	}
 }
