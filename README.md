@@ -32,8 +32,8 @@
 
 * [Ionic v5](https://ionicframework.com/)
 * [Ionic/angular v5](https://ionicframework.com/)
-* [Angular v10](https://angular.io/)
-* [Firebase v7](https://firebase.google.com/) backend database and authentication APIs
+* [Angular v11](https://angular.io/)
+* [Firebase v8](https://firebase.google.com/) backend database and authentication APIs
 
 ## :floppy_disk: Setup
 
@@ -75,6 +75,10 @@
 * [Simon Grimm Youtube: 'Building an Ionic Firebase Chat with Authentication'](https://www.youtube.com/watch?v=xNleEVG9_yA&t=94s)
 * [Simon Grimm Article: 'Building an Ionic Firebase Chat with Authentication'](https://devdactic.com/ionic-firebase-chat/)
 
+## :file_folder: License
+
+* This project is licensed under the terms of the MIT license.
+
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://www.andrewbateman.org) - you are welcome to [send me a message](https://andrewbateman.org/contact)
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
