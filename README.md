@@ -2,20 +2,27 @@
 
 * Ionic app to authenticate users so they can access and post messages to a chat board.
 * Another great tutorial from [Simon Grimm 'Building an Ionic Firebase Chat with Authentication'](https://www.youtube.com/watch?v=xNleEVG9_yA&t=94s).
+* **Note:** to open web links in a new window use: _ctrl+click on link_
+
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-authUser?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/ionic-angular-authUser?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/ionic-angular-authUser?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/ionic-angular-authUser?style=plastic)
 
 ## :page_facing_up: Table of contents
 
 * [:zap: Ionic Angular Authentication](#zap-ionic-angular-authentication)
-	* [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
-	* [:books: General info](#books-general-info)
-	* [:camera: Screenshots](#camera-screenshots)
-	* [:signal_strength: Technologies](#signal_strength-technologies)
-	* [:floppy_disk: Setup](#floppy_disk-setup)
-	* [:computer: Code Examples](#computer-code-examples)
-	* [:cool: Features](#cool-features)
-	* [:clipboard: Status & To-do list](#clipboard-status--to-do-list)
-	* [:clap: Inspiration](#clap-inspiration)
-	* [:envelope: Contact](#envelope-contact)
+  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:books: General info](#books-general-info)
+  * [:camera: Screenshots](#camera-screenshots)
+  * [:signal_strength: Technologies](#signal_strength-technologies)
+  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:computer: Code Examples](#computer-code-examples)
+  * [:cool: Features](#cool-features)
+  * [:clipboard: Status & To-do list](#clipboard-status--to-do-list)
+  * [:clap: Inspiration](#clap-inspiration)
+  * [:file_folder: License](#file_folder-license)
+  * [:envelope: Contact](#envelope-contact)
 
 ## :books: General info
 
@@ -32,7 +39,7 @@
 
 * [Ionic v5](https://ionicframework.com/)
 * [Ionic/angular v5](https://ionicframework.com/)
-* [Angular v11](https://angular.io/)
+* [Angular v12](https://angular.io/)
 * [Firebase v8](https://firebase.google.com/) backend database and authentication APIs
 
 ## :floppy_disk: Setup
