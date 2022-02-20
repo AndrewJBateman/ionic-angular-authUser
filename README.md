@@ -1,7 +1,7 @@
 # :zap: Ionic Angular Authentication
 
 * Ionic app to authenticate users so they can access and post messages to a chat board.
-* Another great tutorial from [Simon Grimm 'Building an Ionic Firebase Chat with Authentication'](https://www.youtube.com/watch?v=xNleEVG9_yA&t=94s).
+* Another great tutorial from [Simon Grimm 'Building an Ionic Firebase Chat with Authentication'](https://www.youtube.com/watch?v=xNleEVG9_yA&t=94s). UPdated to latest Angular and Firebase (compat) versions.
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-authUser?style=plastic)
@@ -37,17 +37,17 @@
 
 ## :signal_strength: Technologies
 
-* [Ionic v5](https://ionicframework.com/)
-* [Ionic/angular v5](https://ionicframework.com/)
-* [Angular v12](https://angular.io/)
-* [Firebase v8](https://firebase.google.com/) backend database and authentication APIs
+* [Ionic v6](https://ionicframework.com/)
+* [Ionic/angular v6](https://ionicframework.com/)
+* [Angular v13](https://angular.io/)
+* [Firebase v9](https://firebase.google.com/) backend database and authentication APIs
 
 ## :floppy_disk: Setup
 
 * Create a Firebase project and add email authentication
 * Add Firebase config object to environment variables
-* npm i to install dependencies
-* Type: 'ionic serve' to start the server on _localhost://8100
+* `npm` i to install dependencies
+* `ionic serve` to start the server on _localhost://8100
 
 ## :computer: Code Examples
 
