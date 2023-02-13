@@ -23,7 +23,7 @@ export interface Message {
   providedIn: "root",
 })
 export class ChatService {
-  currentUser: User = null;
+  currentUser: User = {uid: "testUser", email: "testEmail"};
 
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
     this.afAuth.onAuthStateChanged((user) => {
@@ -38,7 +38,7 @@ export class ChatService {
       password
     );
 
-    const uid = credential.user.uid;
+    const uid = credential.user?.uid;
 
 		const returnDoc = this.afs.doc(`users/${uid}`).set({
       uid,
@@ -67,7 +67,7 @@ export class ChatService {
   }
 
   getChatMessages(): Observable<Message[]> {
-    let users = [];
+    let users: User[] = [];
     return this.getUsers().pipe(
       switchMap((res) => {
         users = res;
@@ -93,12 +93,12 @@ export class ChatService {
       .valueChanges({ idField: "uid" }) as Observable<User[]>;
   }
 
-  getUserForMsg(msgFromId: string, users: User[]): string {
+  getUserForMsg(msgFromId: string, users: User[]): string | undefined {
     for (let usr of users) {
       if (usr.uid == msgFromId) {
         return usr.email;
-      }
-      return "Deleted";
+      } 
+        return "Deleted";
     }
   }
 }

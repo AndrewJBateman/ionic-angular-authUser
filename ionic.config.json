@@ -1,7 +1,5 @@
 {
-  "name": "ionic-angular-auth",
-  "integrations": {
-    "capacitor": {}
-  },
+  "name": "ionic-angular-authUser",
+  "integrations": {},
   "type": "angular"
 }
