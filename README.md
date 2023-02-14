@@ -1,7 +1,7 @@
 # :zap: Ionic Angular Authentication
 
 * Ionic app to authenticate users so they can access and post messages to a chat board.
-* Another great tutorial from [Simon Grimm 'Building an Ionic Firebase Chat with Authentication'](https://www.youtube.com/watch?v=xNleEVG9_yA&t=94s). UPdated to latest Angular and Firebase (compat) versions.
+* Another great tutorial from [Simon Grimm 'Building an Ionic Firebase Chat with Authentication'](https://www.youtube.com/watch?v=xNleEVG9_yA&t=94s). Updated to latest Angular and Firebase (compat) versions.
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-authUser?style=plastic)
@@ -39,7 +39,7 @@
 
 * [Ionic v6](https://ionicframework.com/)
 * [Ionic/angular v6](https://ionicframework.com/)
-* [Angular v13](https://angular.io/)
+* [Angular v15](https://angular.io/)
 * [Firebase v9](https://firebase.google.com/) backend database and authentication APIs
 
 ## :floppy_disk: Setup
@@ -75,7 +75,7 @@
 ## :clipboard: Status & To-do list
 
 * Status: Complete and working. Problem with dev. console persisting user login id which stops chat from showing user details correctly
-* To-do: Find out how to show more than one user email in chat with email username - problem is likely due to storing of user data even after logging out and logging in as a different user.
+* To-do: Fix errors. Find out how to show more than one user email in chat with email username - problem is likely due to storing of user data even after logging out and logging in as a different user.
 
 ## :clap: Inspiration
 
