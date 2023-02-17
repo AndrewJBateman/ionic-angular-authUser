@@ -1,6 +1,12 @@
 import { Injectable } from "@angular/core";
-import { AngularFireAuth } from "@angular/fire/compat/auth";
+// import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+} from '@angular/fire/auth';
 import firebase from "firebase/compat/app";
 import { Observable } from "rxjs";
 import { map, switchMap } from "rxjs/operators";
@@ -25,35 +31,48 @@ export interface Message {
 export class ChatService {
   currentUser: User = {uid: "testUser", email: "testEmail"};
 
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
-    this.afAuth.onAuthStateChanged((user) => {
-      console.log("Changed: ", user);
-      this.currentUser = user;
+  constructor(private auth: Auth, private afs: AngularFirestore) {
+    this.auth.onAuthStateChanged((user) => {
+      if (user && user !== null) {
+        console.log("Changed: ", user);
+        this.currentUser = user;
+      }
+      else {
+        console.log("user is null")
+      }
+
     });
   }
 
-  async signUp({ email, password }): Promise<any> {
-    const credential = await this.afAuth.createUserWithEmailAndPassword(
-      email,
-      password
-    );
-
-    const uid = credential.user?.uid;
-
-		const returnDoc = this.afs.doc(`users/${uid}`).set({
-      uid,
-      email: credential.user.email,
-    });
-		console.log("returnDoc type: ", typeof(returnDoc));
-		return returnDoc;
+  async signUp(email: string, password: string): Promise<any> {
+    try {
+      const credential = await createUserWithEmailAndPassword(
+        this.auth,
+        email, password
+      );
+      const uid = credential.user?.uid;
+      const returnDoc = this.afs.doc(`users/${uid}`).set({
+        uid,
+        email: credential.user.email,
+      });
+      console.log("returnDoc type: ", typeof(returnDoc));
+      return returnDoc;
+    } catch (error) {
+      return null;
+    }
   }
 
-  signIn({ email, password }): Promise<any> {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+  async signIn(email: string, password: string): Promise<any> {
+    try {
+      const user = await signInWithEmailAndPassword(this.auth, email, password);
+      return user;
+    } catch (e) {
+      return null;
+    }
   }
 
   signOut(): Promise<any> {
-    return this.afAuth.signOut();
+    return signOut(this.auth);
   }
 
   addChatMessage(msg: string): Promise<any> {

@@ -10,7 +10,7 @@ import { ChatService } from "src/app/services/chat.service";
   styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
-  credentialForm: FormGroup;
+  credentialForm: FormGroup | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -31,7 +31,8 @@ export class LoginPage implements OnInit {
     const loading = await this.loadingController.create();
     await loading.present();
 
-    this.chatService.signUp(this.credentialForm.value).then(
+    
+    this.chatService.signUp(this.credentialForm?.value).then(
       (user) => {
         loading.dismiss();
         this.router.navigateByUrl("/chat", { replaceUrl: true });
@@ -53,7 +54,7 @@ export class LoginPage implements OnInit {
     const loading = await this.loadingController.create();
     await loading.present();
 
-    this.chatService.signIn(this.credentialForm.value).then(
+    this.chatService.signIn(this.credentialForm?.value).then(
       (res) => {
         loading.dismiss();
         this.router.navigateByUrl("/chat", { replaceUrl: true });
@@ -72,10 +73,10 @@ export class LoginPage implements OnInit {
   }
   // easy access to form fields with getter functions
   get email() {
-    return this.credentialForm.get("email");
+    return this.credentialForm?.get("email");
   }
 
   get password() {
-    return this.credentialForm.get("password");
+    return this.credentialForm?.get("password");
   }
 }
